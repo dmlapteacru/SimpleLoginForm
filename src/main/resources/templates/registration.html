@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Edit Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+
+</head>
+<body>
+<div class="main_wrapper">
+    <div class="wrap">
+        <form th:action="@{/registration}" th:object="${newUserForm}" method="post">
+            <div class="inpt">
+                <label class="control-label">Email</label>
+                <input class="form-control" type="text"  th:field="*{email}" placeholder="Email" required="required"/>
+                <p style="color: #FF1C19" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Errors</p>
+            </div>
+            <div class="inpt">
+                <label class="control-label">Password</label>
+                <input class="form-control" type="password" th:field="*{password}" placeholder="Password" required="required"/>
+                <p style="color: #FF1C19" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Errors</p>
+            </div>
+            <div class="inpt">
+                <label class="control-label">Confirm Password</label>
+                <input class="form-control" type="password" th:field="*{confirmPassword}" placeholder="Confirm Password" required="required"/>
+            </div>
+            <div class="buttons_">
+                <div>
+                    <input type="submit" class="btn btn-primary" value="Save" />
+                    <input class="btn btn-primary" type="reset" value="Reset" />
+                </div>
+                <div><a th:href="@{/login}"><input class="btn btn-primary" type="button" value="Back to Login page"/></a></div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
